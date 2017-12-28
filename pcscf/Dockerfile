@@ -23,5 +23,4 @@ RUN make include_modules="db_mysql ims_usrloc_pcscf ims_registrar_pcscf ims_auth
 RUN make all
 RUN make install
 RUN apt-get -qy install mysql-client
-ADD root/run.sh /root/run.sh
-ENTRYPOINT ["/root/run.sh"]
+ENTRYPOINT ["/usr/local/sbin/kamailio","-f","/usr/local/etc/kamailio/kamailio-pcscf.cfg","-D"]

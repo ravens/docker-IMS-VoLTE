@@ -11,3 +11,4 @@ WORKDIR /opt/OpenIMSCore
 RUN svn checkout svn://svn.code.sf.net/p/openimscore/code/FHoSS/trunk FHoSS
 WORKDIR /opt/OpenIMSCore/FHoSS
 RUN JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8 ant compile deploy 
+ENTRYPOINT ["/root/run.sh"]

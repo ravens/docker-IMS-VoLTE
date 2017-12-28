@@ -22,6 +22,8 @@ services:
     build: fhoss/
     depends_on:
       - db
+    volumes:
+      - ./fhoss/root:/root
     hostname: hss
     domainname: net1.test
 
@@ -30,7 +32,6 @@ services:
     depends_on:
       - db
     volumes:
-      - ./pcscf/root:/root
       - ./pcscf/config:/usr/local/etc/kamailio
     hostname: pcscf
     domainname: net1.test
@@ -40,7 +41,6 @@ services:
     depends_on:
       - db
     volumes:
-      - ./scscf/root:/root
       - ./scscf/config:/usr/local/etc/kamailio
     hostname: scscf
     domainname: net1.test
@@ -50,7 +50,6 @@ services:
     depends_on:
       - db
     volumes:
-      - ./icscf/root:/root
       - ./icscf/config:/usr/local/etc/kamailio
     hostname: icscf
     domainname: net1.test
