@@ -13,3 +13,7 @@ ADD 2-pcscf.sql /docker-entrypoint-initdb.d/2-pcscf.sql
 ADD 3-scscf.sql /docker-entrypoint-initdb.d/3-scscf.sql
 ADD 4-presence-create.sql /docker-entrypoint-initdb.d/4-presence-create.sql
 ADD 5-icscf.mysql.sql /docker-entrypoint-initdb.d/5-icscf.mysql.sql
+
+# HSS database 
+ADD 6-hss_db.sql /docker-entrypoint-initdb.d/6-hss_db.sql
+ADD 7-userdata.sql /docker-entrypoint-initdb.d/7-userdata.sql

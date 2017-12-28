@@ -18,15 +18,6 @@ services:
 #      - ./kamailio/config:/usr/local/etc/kamailio
 #    hostname: kamailio
 
-  fhoss:
-    build: fhoss/
-    depends_on:
-      - db
-    volumes:
-      - ./fhoss/root:/root
-    hostname: hss
-    domainname: net1.test
-
   pcscf:
     build: pcscf/
     depends_on:
@@ -53,3 +44,19 @@ services:
       - ./icscf/config:/usr/local/etc/kamailio
     hostname: icscf
     domainname: net1.test
+
+  fhoss:
+    build: fhoss/
+    depends_on:
+      - db
+    volumes:
+      - ./fhoss/root:/root
+      - ./fhoss/config/DiameterPeerHSS.xml:/opt/OpenIMSCore/FHoSS/deploy/DiameterPeerHSS.xml
+      - ./fhoss/config/hibernate.properties:/opt/OpenIMSCore/FHoSS/deploy/hibernate.properties
+      - ./fhoss/config/hss.properties:/opt/OpenIMSCore/FHoSS/deploy/hss.properties
+    ports:
+      - "8080:8080"
+    hostname: hss
+    domainname: net1.test
+    
+    
