@@ -19,5 +19,4 @@
 #/usr/local/sbin/kamdbctl create
 
 # daemonize
-sleep 50
-kamailio -D
+kamailio -f /usr/local/etc/kamailio/kamailio-scscf.cfg -D 

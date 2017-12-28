@@ -1,5 +1,7 @@
 CREATE DATABASE `pcscf`;
 
+grant delete,insert,select,update on pcscf.* to pcscf@dockerimsvolte_pcscf_1.dockerimsvolte_default identified by 'heslo';
+
 USE pcscf;
 
 CREATE TABLE `version` (

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiameterPeer 
+	FQDN="scscf.net1.test"
+	Realm="net1.test"
+	Vendor_Id="10415"
+	Product_Name="CDiameterPeer"
+	AcceptUnknownPeers="1"
+	DropUnknownOnDisconnect="1"
+	Tc="30"
+	Workers="4"
+	QueueLength="8"
+	TransactionTimeout="5"
+	SessionsHashSize="128"
+	DefaultAuthSessionTimeout="3600"
+	MaxAuthSessionTimeout="3600"
+>
+
+	<Peer FQDN="hss.net1.test" Realm="net1.test" port="3868"/>
+		
+	<Acceptor port="3870" bind="10.0.0.9"/>
+	
+        <Auth id="16777216" vendor="10415"/><!-- 3GPP Cx -->
+        <Auth id="4" vendor="10415"/> <!--3GPP Ro -->
+                
+	<DefaultRoute FQDN="hss.net1.test" metric="10"/>
+
+
+</DiameterPeer>

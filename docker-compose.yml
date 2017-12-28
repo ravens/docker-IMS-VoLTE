@@ -9,18 +9,48 @@ services:
     volumes:
       - ./db/data:/var/lib/mysql
 
-  kamailio: 
-    build: kamailio/
-    depends_on:
-      - db
-    volumes:
-      - ./kamailio/root:/root
-      - ./kamailio/config:/usr/local/etc/kamailio
-    hostname: kamailio
+#  kamailio: 
+#    build: kamailio/
+#    depends_on:
+#      - db
+#    volumes:
+#      - ./kamailio/root:/root
+#      - ./kamailio/config:/usr/local/etc/kamailio
+#    hostname: kamailio
 
   fhoss:
     build: fhoss/
     depends_on:
       - db
-      - kamailio
-    hostname: fhoss
+    hostname: hss
+    domainname: net1.test
+
+  pcscf:
+    build: pcscf/
+    depends_on:
+      - db
+    volumes:
+      - ./pcscf/root:/root
+      - ./pcscf/config:/usr/local/etc/kamailio
+    hostname: pcscf
+    domainname: net1.test
+
+  scscf:
+    build: scscf/
+    depends_on:
+      - db
+    volumes:
+      - ./scscf/root:/root
+      - ./scscf/config:/usr/local/etc/kamailio
+    hostname: scscf
+    domainname: net1.test
+
+  icscf:
+    build: icscf/
+    depends_on:
+      - db
+    volumes:
+      - ./icscf/root:/root
+      - ./icscf/config:/usr/local/etc/kamailio
+    hostname: icscf
+    domainname: net1.test
