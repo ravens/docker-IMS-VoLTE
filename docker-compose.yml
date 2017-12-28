@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  db:
+    build: db/
+    ports:
+        - 3306:3306
+    hostname: db
+    volumes:
+      - ./db/data:/var/lib/mysql
+
+  kamailio: 
+    build: kamailio/
+    depends_on:
+      - db
+    volumes:
+      - ./kamailio/root:/root
+      - ./kamailio/config:/usr/local/etc/kamailio
+    hostname: kamailio
+
+  fhoss:
+    build: fhoss/
+    depends_on:
+      - db
+      - kamailio
+    hostname: fhoss
