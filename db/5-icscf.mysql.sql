@@ -21,7 +21,7 @@
 
 CREATE DATABASE /*!32312 IF NOT EXISTS*/ `icscf` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-grant delete,insert,select,update on icscf.* to icscf@dockerimsvolte_icscf_1.dockerimsvolte_default identified by 'heslo';
+grant delete,insert,select,update on icscf.* to icscf@'%' identified by 'heslo';
 
 USE `icscf`;
 

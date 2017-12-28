@@ -1,6 +1,6 @@
 CREATE DATABASE `scscf`;
 
-GRANT delete,insert,select,update on scscf.* to scscf@dockerimsvolte_scscf_1.dockerimsvolte_default identified by 'heslo';
+GRANT delete,insert,select,update on scscf.* to scscf@'%' identified by 'heslo';
 
 USE scscf;
 

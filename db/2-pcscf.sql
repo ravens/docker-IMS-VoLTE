@@ -1,6 +1,6 @@
 CREATE DATABASE `pcscf`;
 
-grant delete,insert,select,update on pcscf.* to pcscf@dockerimsvolte_pcscf_1.dockerimsvolte_default identified by 'heslo';
+grant delete,insert,select,update on pcscf.* to pcscf@'%' identified by 'heslo';
 
 USE pcscf;
 
