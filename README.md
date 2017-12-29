@@ -29,4 +29,6 @@ then to run :
 docker-compose up -d
 ```
 
-the HSS database is exposing the port 8080 at the moment.
+All containers are exposing their respective ports (SIP derivatives for P/I/S-CSCF and Diameter for HSS). The administrative interface is on port 8080, with hssAdmin/hss as admin and hss/hss as user.
+
+HSS parameters need to be setup in the fhoss/config/hss.properties files (OP key, AMF)
