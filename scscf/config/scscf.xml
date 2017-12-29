@@ -17,7 +17,7 @@
 
 	<Peer FQDN="hss.net1.test" Realm="net1.test" port="3868"/>
 		
-	<Acceptor port="3870" bind="10.0.0.9"/>
+	<Acceptor port="3870" bind="0.0.0.0"/>
 	
         <Auth id="16777216" vendor="10415"/><!-- 3GPP Cx -->
         <Auth id="4" vendor="10415"/> <!--3GPP Ro -->
