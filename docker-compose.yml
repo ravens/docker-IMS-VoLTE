@@ -1,5 +1,8 @@
 version: '2'
 
+networks:
+  net1.test:
+
 services:
   db:
     build: db/
@@ -8,6 +11,8 @@ services:
     hostname: db
     volumes:
       - ./db/data:/var/lib/mysql
+    networks:
+      net1.test:
 
 #  kamailio: 
 #    build: kamailio/
@@ -26,6 +31,10 @@ services:
       - ./pcscf/config:/usr/local/etc/kamailio
     hostname: pcscf
     domainname: net1.test
+    networks:
+      net1.test:
+        aliases:
+          - db.net1.test
 
   scscf:
     build: scscf/
@@ -35,6 +44,10 @@ services:
       - ./scscf/config:/usr/local/etc/kamailio
     hostname: scscf
     domainname: net1.test
+    networks:
+      net1.test:
+        aliases:
+          - scscf.net1.test
 
   icscf:
     build: icscf/
@@ -44,6 +57,10 @@ services:
       - ./icscf/config:/usr/local/etc/kamailio
     hostname: icscf
     domainname: net1.test
+    networks:
+      net1.test:
+        aliases:
+          - icscf.net1.test
 
   fhoss:
     build: fhoss/
@@ -58,5 +75,9 @@ services:
       - "8080:8080"
     hostname: hss
     domainname: net1.test
+    networks:
+      net1.test:
+        aliases:
+          - hss.net1.test
     
     
